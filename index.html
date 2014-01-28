@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>GMap Coloring Tool</title>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+		<style>
+			.gmapContainer{
+				padding-top:50px;
+			}
+
+			#map{
+				height:980px;
+			}
+
+			#jsonMap{
+				height:500px;
+				width:100%;
+			}
+		</style>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&language=fr"></script>
+		<script type="text/javascript">
+			function initialize() {
+				var mapOptions = {
+		          center: new google.maps.LatLng(-34.397, 150.644),
+		          zoom: 8
+		        };
+		        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+			}
+
+			function updateMap(){
+				console.log('d')
+			}
+
+			$('document').ready(function(){
+				initialize();
+
+				$('#jsonMap').change(function(){
+					updateMap();
+				});
+				$('#jsonMap').keyup(function(){
+			        updateMap();
+			    });
+			});
+		</script>
+
+	</head>
+	<body>
+		<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav clearfix" role="banner">
+			<div class="navbar-header">
+			  	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				    <span class="sr-only">Toggle navigation</span>
+				    <span class="icon-bar"></span>
+				    <span class="icon-bar"></span>
+				    <span class="icon-bar"></span>
+			 	</button>
+			  <a href="#" class="navbar-brand">GMap Coloring tool</a>
+			</div>
+			<!--<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+			  	<ul class="nav navbar-nav">
+				    <li>
+				      	<a href="../getting-started">Getting started</a>
+				    </li>
+				    <li>
+				      	<a href="../css">CSS</a>
+				    </li>
+				    <li>
+				      	<a href="../components">Components</a>
+				    </li>
+				    <li>
+				      	<a href="../javascript">JavaScript</a>
+				    </li>
+				    <li class="active">
+				      	<a href="../customize">Customize</a>
+				    </li>
+			  	</ul>
+			  	<ul class="nav navbar-nav navbar-right">
+				    <li>
+				      	<a href="../about">About</a>
+				    </li>
+			  	</ul>
+			</nav>-->
+		</header>
+		<div class="clearfix gmapContainer">
+			<div class="col-md-3 col-lg-2">
+				<h2>Customizing</h2>
+			</div>
+			<div class="col-md-6 col-lg-8" id="map">
+
+			</div>
+			<div class="col-md-3 col-lg-2">
+				<h2>JSON</h2>
+				<textarea id="jsonMap"></textarea>
+			</div>
+		</div>
+	</body>
+</html>
